@@ -83,11 +83,11 @@
     </div>
 
     <?php
-    $dns = "mysql:host=127.0.0.1;dbname=work_of_tracker";
-    $username = "root";
-    $pasword = "root";
-
-    $pdo = new PDO($dns, $username, $pasword);
+    
+    
+    require 'DB.php';
+    $db=new DB();
+    $pdo=$db->pdo;
 
     const WORK_TIME = 8;
 
@@ -112,6 +112,8 @@
         $stmt->bindValue(':leaved_at', $leaved_at->format(format: 'Y-m-d H:i'));
         $stmt->bindParam(':required_of', $total);
         $stmt->execute();
+        header('Location: work_tiime.php');
+        return;
         }
     };
 
