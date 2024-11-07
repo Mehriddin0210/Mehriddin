@@ -17,5 +17,12 @@
     }
 
     $records = $workDay->getWorkDayList();
+    
+    
+    if (isset($_GET['done']) and isset($_GET['done'])) { 
+        $workDay->markAsDone($_GET['done']);
+    }        
+    
+    
     require 'view.php';
 ?>

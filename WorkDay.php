@@ -46,4 +46,17 @@ class WorkDay{
         $stmt = $this->pdo->query($query);
         return $stmt->fetchAll();
     }
+
+    public function calculateDebtTime(){
+        $selectQuery= "select name, sum(required_of) as 'debt' from daily group by name;";
+        $stmt = $this->pdo->prepare($selectQuery);
+        return $stmt->fetchAll();
+    }
+    public function markAsDone(int $id): void{
+        $query="UPDATE work_time SET required_of=0 Where id= :id";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->bindParam("id", $id);
+        $stmt->execute();
+        header('Location: work_daily.php');
+    }
 }
