@@ -9,6 +9,6 @@ class DB{
     $pasword = "root";
 
     $this->pdo = new PDO($dns, $username, $pasword);
-    return $this->pdo;
+    
     }
 }
