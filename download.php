@@ -11,7 +11,8 @@ if (isset($_POST["export"])) {
 
     fputcsv($output, $columns);
     $i=0;
-    foreach ($records as $record) {
+    foreach ($records as $record) 
+    {
         $i++;
         $record['required_of']=gmdate('H:i', $record['required_of']);
         $record['id']=$i;

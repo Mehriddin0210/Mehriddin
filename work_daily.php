@@ -18,7 +18,7 @@
     $currentPage = isset($_GET['page'])  ? $_GET['page'] : 0;
     $records = $workDay->getWorkDayListWithPagination($currentPage);
     
-    $debt = $workDay->calculateDebtTime();
+    $debt = $workDay-> calculateDebtTime();
     if (isset($_GET['done']) and isset($_GET['done'])) { 
         $workDay->markAsDone($_GET['done']);
     }        

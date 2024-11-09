@@ -69,7 +69,8 @@ class WorkDay {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function calculatePageCount() {
+    public function calculatePageCount() 
+    {
         $total = $this->getTotalRecords()['pageCount'];
         return ceil($total / 10);
     }
